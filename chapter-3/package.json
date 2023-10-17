@@ -1,0 +1,35 @@
+{
+  "name": "chapter-3",
+  "version": "1.0.0",
+  "description": "react-course",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sazzadalam112/React-course.git"
+  },
+  "author": "sazzad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sazzadalam112/React-course/issues"
+  },
+  "homepage": "https://github.com/sazzadalam112/React-course#readme",
+  "devDependencies": {
+    "@babel/core": "^7.23.2",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "parcel": "^2.10.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist": [
+    "last 1 chrome version",
+    "last 1 firefox version",
+    "last 1 safari version"
+  ]
+}
