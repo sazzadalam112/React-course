@@ -1,0 +1,35 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px;
+    border: medium solid;
+}
+.nav-items > ul{
+    list-style-type: none;
+    display: flex;
+   
+}
+.nav-items > ul > li {
+    padding: 10px;
+}
+.logo{
+    width: 100px;
+}
+.card{
+    width: 200px;
+    /* height: 100px; */
+    border: medium solid black;
+    
+    padding: 10px;
+    margin: 10px;
+   
+}
+.card > img {
+    width: 100%;
+    height: 150px;
+}
+.Restaurant-body{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 100px;
+}
