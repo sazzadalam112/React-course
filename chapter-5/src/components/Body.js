@@ -1,8 +1,32 @@
 import { restrautList } from "../config";
 import RestaurantCard from "./RestaurantCard";
+import {useState} from "react";
 
 const Body = () => {
+    // const searchTxt = "KFC";
+   const [searchInput, setSearchInput] = useState("KFC"); // returns =[variable nae,function update the variable]
+   const [searchClicked,setSearchClicked] = useState("False")
+
     return (
+        <>
+        <div className="search-container"> 
+        <input 
+        type="text" 
+        className="search-input"
+        placeholder="Search"
+        value = {searchInput}
+        onChange={(e) => {
+            // e.target.value what ever u write in input 
+        setSearchInput(e.target.value);
+        }}
+        />
+        <h1>{searchClicked}</h1>
+        <button className="search-btn" onClick={() => {
+            setSearchClicked("True")
+        }}
+        >
+            Search</button>
+        </div>
         <div className="restaurant-list">
             {
                 restrautList.map((restaurant) => {
@@ -24,7 +48,7 @@ const Body = () => {
            
             
 
-        </div>
+        </div></>
     )
 }
 
