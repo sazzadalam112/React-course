@@ -2,10 +2,19 @@ import { restrautList } from "../config";
 import RestaurantCard from "./RestaurantCard";
 import {useState} from "react";
 
+// filterData();
+function filterData(searchText,restaurants){
+   const filterData = restaurants.filter((restaurant) => 
+    restaurant.data.name.includes(searchText));
+
+    return filterData;
+
+}
+
 const Body = () => {
     // const searchTxt = "KFC";
-   const [searchInput, setSearchInput] = useState("KFC"); // returns =[variable nae,function update the variable]
-   const [searchClicked,setSearchClicked] = useState("False")
+   const [searchText, setSearchText] = useState(" "); // returns =[variable nae,function update the variable]
+   const [restaurants,setRestaurants] = useState(restrautList);
 
     return (
         <>
@@ -14,22 +23,26 @@ const Body = () => {
         type="text" 
         className="search-input"
         placeholder="Search"
-        value = {searchInput}
+        value = {searchText}
         onChange={(e) => {
             // e.target.value what ever u write in input 
-        setSearchInput(e.target.value);
+        setSearchText(e.target.value);
         }}
         />
-        <h1>{searchClicked}</h1>
-        <button className="search-btn" onClick={() => {
-            setSearchClicked("True")
-        }}
+        
+        <button className="search-btn" 
+        onClick={() => {
+           // need to filter data
+           const data =  filterData(searchText,restaurants);
+           // update the state - restaurant 
+          setRestaurants(data);
+         }}
         >
             Search</button>
         </div>
         <div className="restaurant-list">
             {
-                restrautList.map((restaurant) => {
+                restaurants.map((restaurant) => {
                     return <RestaurantCard {...restaurant.data } key={restaurant.data.id}/>;
                 })
             }
