@@ -27,6 +27,7 @@ const Header = () => {
        
     )
 };
+
 const restaurantList = [
     
     {
@@ -785,7 +786,7 @@ const Body = () => {
         <div className="Restaurant-body">
      {
         restaurantList.map(restaurant => {
-            return <RestaurantCard {...restaurant.data} key={"restaurant.parentId"} />
+            return <RestaurantCard {...restaurant.data} key={restaurant.data.id}  />
         })
      }
        </div>
