@@ -14,7 +14,7 @@ const RestaurantCard = ({
             <h1>{name}</h1>
             {/* <h2>{cuisines.join(" , ")}</h2> */}
             <h2>AvgRating :{avgRating}</h2>
-            <h2>CostForTwo: {costForTwo}</h2>
+            <h3>CostForTwo: {costForTwo}</h3>
         </div>
     )
 }

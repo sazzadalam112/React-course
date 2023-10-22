@@ -9,12 +9,12 @@ const Title = () => (
 </a>)
 
 const Header = () => {
-    const [title,setTitle] = useState("Food Villa")
+  const[title,setTitle] = useState("Food-Villa")
     return(
         <div className="header">
             <Title />
             <h1>{title}</h1>
-            <button onClick={() => setTitle("Food Villa-App")}>Change title</button>
+           <button onClick={() => setTitle("Food Villa-App")}>Change title</button>
             <div className="nav-items">
                 <ul>
                     <li>Home</li>
