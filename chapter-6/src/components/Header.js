@@ -1,5 +1,10 @@
 import { useState } from "react";
 
+// const loggedInUser = () => {
+//     // Api call to check authentication 
+//     return true;
+// };
+
 const Title = () => (
     <a href="/">
     <img 
@@ -9,12 +14,11 @@ const Title = () => (
 </a>)
 
 const Header = () => {
-  const[title,setTitle] = useState("Food-Villa")
+ const [isLoggedIn,setIsLoggedIn] = useState(true);
     return(
         <div className="header">
             <Title />
-            <h1>{title}</h1>
-           <button onClick={() => setTitle("Food Villa-App")}>Change title</button>
+            
             <div className="nav-items">
                 <ul>
                     <li>Home</li>
@@ -24,6 +28,10 @@ const Header = () => {
                 </ul>
             </div>
 
+        {isLoggedIn ?  (<button onClick={() => setIsLoggedIn(false)}>Logout</button>  
+        ): (
+        <button onClick={() =>setIsLoggedIn(true)}>Login</button>
+        )}
         </div>
     );
 };
