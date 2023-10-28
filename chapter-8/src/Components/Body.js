@@ -24,10 +24,15 @@ getRestaurants();
   setFilteredRestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle.restaurants);
  }
 
+//  const isOnline = useOnline();
+//  if(!isOnline){
+//   return <h1>🔴Offline, Please check your internet Connection</h1>
+//  }
  const isOnline = useOnline();
  if(!isOnline){
-  return <h1>🔴Offline, Please check your internet Connection</h1>
+  return<h1>🔴 offline,Please check your internet Connection</h1>
  }
+
 if(!allResturants) return null;
 
 return allResturants.length === 0 ? (

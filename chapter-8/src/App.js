@@ -1,7 +1,7 @@
 // ## Namaste React Course by Akshay Saini
 // # Chapter 07 - Finding the Path
 
-import React from "react";
+import React,{lazy,Suspense} from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./Components/Header";
 import Body from "./Components/Body";
@@ -13,6 +13,10 @@ import Contact from "./Components/Contact";
 import RestaurantMenu from "./Components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"; // for routing our page import createBrowserRouter and RouterProvider for providing router & Outlet for children component for nested routing
 import Profile from "./Components/Profile";
+import Shimmer from "./Components/Shimmer";
+
+
+const Instamart = lazy(() => import("./Components/Instamart"));
 /* My Food App structure will look like this, 
             1) Header
                 - Logo
@@ -71,6 +75,14 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurant/:resId",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "instamart",
+        element: 
+        (<Suspense fallback={<Shimmer />}>
+          <Instamart />
+          </Suspense>
+          ),
       },
     ],
   },

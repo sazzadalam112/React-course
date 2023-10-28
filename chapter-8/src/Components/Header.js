@@ -2,6 +2,7 @@ import { useState } from "react";
 import FoodFireLogo from "../Images/Food Fire Logo.png";
 import { Link } from "react-router-dom"; // imported Link for client side routing
 import { useNavigate } from "react-router-dom";
+import useOnline from "../utils/useOnline";
 
 // Title component for display logo
 const Title = () => (
@@ -20,6 +21,8 @@ const Header = () => {
   // use useState for user logged in or logged out
   const [isLoggedin, setIsLoggedin] = useState(true);
   const navigate = useNavigate();
+
+  const isOnline = useOnline();
   return (
     <div className="header">
       <Title />
@@ -36,14 +39,19 @@ const Header = () => {
             <Link to="/contact">Contact</Link>
           </li>
           <li>
-            <Link to="/contact">Cart</Link>
+            <Link to="/instamart">Instamart</Link>
           </li>
           {/* <li>
             <i className="fa-solid fa-cart-shopping"></i>
           </li> */}
           <li>
             {/* use conditional rendering for login and logout */}
-            {isLoggedin ? (
+           
+          </li>
+        </ul>
+      </div>
+      <h1>{isOnline? '✅': '🔴'}</h1>
+      {isLoggedin ? (
               <button
                 className="logout-btn"
                 onClick={() => setIsLoggedin(false)}
@@ -51,13 +59,10 @@ const Header = () => {
                 Logout
               </button>
             ) : (
-              <button className="login-btn" onClick={() => navigate("/login")}>
+            <button className="login-btn" onClick={() => navigate("/login")}>
                 Login
               </button>
             )}
-          </li>
-        </ul>
-      </div>
     </div>
   );
 };
