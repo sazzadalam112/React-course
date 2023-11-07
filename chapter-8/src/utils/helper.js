@@ -3,4 +3,3 @@ export function filterData(restaurants,searchText){
     );
     return filterData
   }
-  

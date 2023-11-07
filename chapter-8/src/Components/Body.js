@@ -35,7 +35,8 @@ getRestaurants();
 
 if(!allResturants) return null;
 
-return allResturants.length === 0 ? (
+
+return allResturants?.length === 0 ? (
 <Shimmer /> 
 ): (
       <>
@@ -49,7 +50,10 @@ return allResturants.length === 0 ? (
      }}
      />
      {/* <h1>{searchClicked}</h1> */}
-     <button className="search-btn"  onClick={()=>{ 
+     <button style={{
+     backgroundColor: "red",
+     }} 
+     onClick={()=>{ 
       //  need to filter data 
      const data = filterData(allResturants,searchText);
     // update the restaurant detail
