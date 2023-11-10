@@ -24,7 +24,7 @@ const Header = () => {
 
   const isOnline = useOnline();
   return (
-    <div className="bg-slate-100 border-4 border-indigo-200 border-y-indigo-500 m-5 flex justify-between">
+    <div className="bg-slate-100 border-4 border-indigo-200 border-y-indigo-500 m-5 flex justify-between sm:bg-red-900 md:bg-blue-900">
       <Title />
       <div className="nav-itmes">
         <ul className="flex py-16" > 

@@ -8,7 +8,7 @@ import useOnline  from "../utils/useOnline";
 
 
 
-const Body = () => {
+const Body = ({user}) => {
  const[allResturants,setAllRestaurants] = useState([])
  const[searchText,setSearchText] = useState("");
  const [filteredRestaurants,setFilteredRestaurant] = useState([]);
@@ -40,8 +40,8 @@ return allResturants?.length === 0 ? (
 <Shimmer /> 
 ): (
       <>
-     <div>
-     <input className="search-container"
+     <div className="p-5 bg-gray-400 m-5" >
+     <input className="focus:bg-red-200 p-2 m-2"
      type="text"
      placeholder="search"
      value={searchText}
@@ -50,9 +50,7 @@ return allResturants?.length === 0 ? (
      }}
      />
      {/* <h1>{searchClicked}</h1> */}
-     <button style={{
-     backgroundColor: "red",
-     }} 
+     <button className="ml-20 px-10 rounded-full bg-orange-600 hover:bg-sky-100 ..."
      onClick={()=>{ 
       //  need to filter data 
      const data = filterData(allResturants,searchText);
@@ -63,7 +61,7 @@ return allResturants?.length === 0 ? (
       Search</button>
      </div>
 
-      <div className="restaurant-list">
+      <div className="flex flex-wrap bg-slate-200">
           {/* You have to write logic for No Restrunt fount here  */}
           {filteredRestaurants.map((restaurant) => {
               return (
@@ -71,7 +69,7 @@ return allResturants?.length === 0 ? (
                 to={"/restaurant/" + restaurant?.info?.id}
                     key={restaurant?.info?.id}
                     >
-                    <RestaurantCard {...restaurant?.info} />
+                    <RestaurantCard {...restaurant?.info} user = {user} />
                     </Link>
                     );
           })

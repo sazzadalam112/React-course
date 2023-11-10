@@ -1,7 +1,7 @@
 // ## Namaste React Course by Akshay Saini
 // # Chapter 07 - Finding the Path
 
-import React,{lazy,Suspense} from "react";
+import React,{lazy,Suspense, useState} from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./Components/Header";
 import Body from "./Components/Body";
@@ -37,12 +37,16 @@ const Instamart = lazy(() => import("./Components/Instamart"));
 
 // AppLayout component to render: Header, Outlet(it contain children component like body, About, Restaurant Menu etc) and Footer Component
 const AppLayout = () => {
+  const [user,setUser] = useState({
+    name:"Namaste React",
+    email:"mdsazzadalamcp@gmail.com"
+  });
   return (
-    <React.Fragment>
+    <>
       <Header />
       <Outlet />
       <Footer />
-    </React.Fragment>
+    </>
   );
 };
 
@@ -56,7 +60,10 @@ const appRouter = createBrowserRouter([
       // show children component for routing
       {
         path: "/",
-        element: <Body />,
+        element: <Body user={{
+          name:"Namaste React",
+          email:"mdsazzadalamcp@gmail.com"
+        }} />,
       },
       {
         path: "/about",
