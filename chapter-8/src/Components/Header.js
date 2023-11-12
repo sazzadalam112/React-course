@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState , useContext } from "react";
 import FoodFireLogo from "../Images/Food Fire Logo.png";
 import { Link } from "react-router-dom"; // imported Link for client side routing
 import { useNavigate } from "react-router-dom";
 import useOnline from "../utils/useOnline";
+import UserContext from "../utils/UserContext";
 
 // Title component for display logo
 const Title = () => (
@@ -23,6 +24,8 @@ const Header = () => {
   const navigate = useNavigate();
 
   const isOnline = useOnline();
+
+  const {user} = useContext(UserContext);
   return (
     <div className="bg-slate-100 border-4 border-indigo-200 border-y-indigo-500 m-5 flex justify-between sm:bg-red-900 md:bg-blue-900">
       <Title />
@@ -39,6 +42,9 @@ const Header = () => {
             <Link to="/contact">Contact</Link>
           </li>
           <li className="px-10">
+            <Link >Cart</Link>
+          </li>
+          <li className="px-10">
             <Link to="/instamart">Instamart</Link>
           </li>
           {/* <li>
@@ -51,6 +57,7 @@ const Header = () => {
         </ul>
       </div>
       <h1>{isOnline? '✅': '🔴'}</h1>
+      <h1 className="p-10 font-bold text-red-500 text-2xl">{user.name}</h1>
       {isLoggedin ? (
               <button
                 className="logout-btn"

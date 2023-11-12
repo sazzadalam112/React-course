@@ -1,6 +1,7 @@
 import food from "../Images/burger-image.png";
 import {Outlet} from "react-router-dom";
 import Profile from "./Profile";
+import UserContext from "../utils/UserContext";
 // import Profile from "./ProfileClass"; 
 
 

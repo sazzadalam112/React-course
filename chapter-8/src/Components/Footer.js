@@ -1,21 +1,17 @@
-// Footer component for footer section
-const Footer = () => {
-  return (
-    // <div className="footer">
-    //   Created By
-    //   <i className="fa-solid fa-heart"></i>
-    //   <a href="https://www.linkedin.com/in/md-sazzad-alam/" target="_blank" title="Md Sazzad alam profile">
-    //     MSA
-    //   </a>
-    //   <i className="fa-solid fa-copyright"></i>2023
-    //   <strong>
-    //     Food<span>Villa-App</span>
-    //   </strong>
-    // </div>
-    <div>
-      <h1>Footer</h1>
-    </div>
-  );
-};
 
+// import { useContext } from "react";
+// import UserContext from "../utils/UserContext";
+// const Footer = () => {
+//   const {user} = useContext(UserContext)
+//   return <h4 className="p-4 m-4">This site is developed by {user.name} - {user.email}</h4>
+// };
+// export default Footer;
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
+const Footer = () => {
+  const { user} = useContext(UserContext);
+  return(
+  <h1 className="p-4 m-4">This site is developed by {user.name}-{user.email}</h1>
+  )
+  };
 export default Footer;
