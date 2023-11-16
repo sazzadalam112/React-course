@@ -14,6 +14,8 @@ import RestaurantMenu from "./Components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"; // for routing our page import createBrowserRouter and RouterProvider for providing router & Outlet for children component for nested routing
 import Profile from "./Components/Profile";
 import Shimmer from "./Components/Shimmer";
+import { Provider } from "react-redux";
+import store from "./utils/store";
 
 
 const Instamart = lazy(() => import("./Components/Instamart"));
@@ -42,11 +44,11 @@ const AppLayout = () => {
     email:"mdsazzadalamcp@gmail.com"
   });
   return (
-    <>
+    <Provider store={store}>
       <Header />
       <Outlet />
       <Footer />
-    </>
+    </Provider>
   );
 };
 

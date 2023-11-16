@@ -7,6 +7,8 @@ import {
   MENU_ITEM_TYPE_KEY,
   RESTAURANT_TYPE_KEY,
 } from "../constants";
+import { addItem } from "../utils/cartSlice";
+import { useDispatch } from "react-redux";
 // import {MenuShimmer} from "./Shimmer";
 // import Shimmer from "./Shimmer";
 
@@ -48,21 +50,25 @@ const RestaurantMenu = () => {
       console.log(error);
     }
   }
+  const dispatch = useDispatch();
+  const handleAddItem = () => {
+    dispatch(addItem("Grapes"));  // payload: "Grapes"
+  }
 
   // return !restaurant ? (
   //   <MenuShimmer />
   // ) : (
     return(
-    <div className="restaurant-menu">
-      <div className="restaurant-summary">
+    <div className=" m-1 p-2">
+      <div className="bg-blue-100">
         <img
-          className="restaurant-img"
+          className="p-2"
           src={IMG_CDN_URL + restaurant?.cloudinaryImageId}
           alt={restaurant?.name}
         />
-        <div className="restaurant-summary-details">
-          <h2 className="restaurant-title">{restaurant?.name}</h2>
-          <p className="restaurant-tags">{restaurant?.cuisines?.join(", ")}</p>
+        <div className="m-2">
+          <h1 className="font-bold text-xl">{restaurant?.name}</h1>
+          <p className="font-bold text-xl">{restaurant?.cuisines?.join(", ")}</p>
           <div className="restaurant-details">
             <div className="restaurant-rating" style={
             (restaurant?.avgRating) < 4
@@ -77,12 +83,12 @@ const RestaurantMenu = () => {
             <div className="restaurant-rating-slash">|</div>
             <div>{restaurant?.sla?.slaString}</div>
             <div className="restaurant-rating-slash">|</div>
-            <div>{restaurant?.costForTwoMessage}</div>
+            <div className="font-bold">{restaurant?.costForTwoMessage}</div>
           </div>
         </div>
       </div>
 
-      <div className="restaurant-menu-content">
+      <div className=" text-red-700">
         <div className="menu-items-container">
           <div className="menu-title-wrap">
             <h3 className="menu-title">Recommended</h3>
@@ -113,7 +119,8 @@ const RestaurantMenu = () => {
                       alt={item?.name}
                     />
                   )}
-                  <button className="add-btn"> ADD +</button>
+                  <button className="bg-red-600 p-2 m-4" 
+                  onClick={() => handleAddItem()} > ADD +</button>
                 </div>
               </div>
             ))}

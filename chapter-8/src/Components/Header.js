@@ -4,6 +4,8 @@ import { Link } from "react-router-dom"; // imported Link for client side routin
 import { useNavigate } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import UserContext from "../utils/UserContext";
+import { UseSelector, useSelector} from "react-redux";
+// import store from "../utils/store";
 
 // Title component for display logo
 const Title = () => (
@@ -26,6 +28,9 @@ const Header = () => {
   const isOnline = useOnline();
 
   const {user} = useContext(UserContext);
+ 
+  const cartItems = useSelector((store) => store.cart.items);
+
   return (
     <div className="bg-slate-100 border-4 border-indigo-200 border-y-indigo-500 m-5 flex justify-between sm:bg-red-900 md:bg-blue-900">
       <Title />
@@ -41,11 +46,12 @@ const Header = () => {
           <li className="px-10">
             <Link to="/contact">Contact</Link>
           </li>
-          <li className="px-10">
-            <Link >Cart</Link>
-          </li>
+         
           <li className="px-10">
             <Link to="/instamart">Instamart</Link>
+          </li> 
+          <li className="px-10">
+            <Link >Cart - {cartItems.length}items</Link>
           </li>
           {/* <li>
             <i className="fa-solid fa-cart-shopping"></i>
